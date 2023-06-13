@@ -96,15 +96,38 @@ body {
 .list li {
   margin: 20px 0;
 }
+.list ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
 
 .list li a {
   color: rgb(34, 31, 31);
   font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
+  position: relative;
+  padding: 10px;
+  overflow: hidden;
+  transition: color 0.3s ease-in;
 }
 
-.list ul {
-  list-style-type: none;
-  padding-left: 20px;
+.list li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8rem;
+  height: 100%;
+  background-color: rgb(229, 9, 20);
+  z-index: -1;
+  transform: translateX(-20rem) skewX(-20deg);
+  transition: transform 0.5s ease;
+}
+
+.list li a:hover::before {
+  transform: translateX(0) skewX(-20deg);
+}
+.list li a:hover {
+  color: #fff;
 }
